@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React from "react";
 import { ServerListDisplayWrapper } from "@/components/manage-servers/ServerListDisplayWrapper";
@@ -5,6 +6,14 @@ import { AddServerDialogWrapper } from "@/components/manage-servers/AddServerDia
 import { Separator } from "@/components/ui/separator";
 import { getServersAction } from "@/lib/actions/serverActions";
 import { Server } from "@/lib/generated/prisma";
+=======
+import React from 'react';
+import { ServerListDisplayWrapper } from '@/components/manage-servers/ServerListDisplayWrapper';
+import { AddServerDialogWrapper } from '@/components/manage-servers/AddServerDialogWrapper';
+import { Separator } from '@/components/ui/separator';
+import { getServersAction } from '@/lib/actions/serverActions';
+import { Server } from '@/lib/generated/prisma';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 export default async function HomePage() {
   const servers: Server[] = await getServersAction();

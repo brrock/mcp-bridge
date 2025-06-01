@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createMcpHandler } from "@vercel/mcp-adapter";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
@@ -9,11 +10,28 @@ import prisma from "@/lib/prisma";
 import type { Server as PrismaServerType } from "@/lib/generated/prisma"; 
 
 const CLIENT_APP_NAME_PREFIX = "mcp-bridge-dynamic";
+=======
+import { createMcpHandler } from '@vercel/mcp-adapter';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
+import { z, ZodTypeAny, ZodRawShape } from 'zod';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
+import logger from '@/lib/logger';
+import prisma from '@/lib/prisma';
+import type { Server as PrismaServerType } from '@/lib/generated/prisma';
+
+const CLIENT_APP_NAME_PREFIX = 'mcp-bridge-dynamic';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 const REDIS_URL = process.env.REDIS_URL;
 
 if (!REDIS_URL) {
   throw new Error(
+<<<<<<< HEAD
     "REDIS_URL environment variable is not set. This is required.",
+=======
+    'REDIS_URL environment variable is not set. This is required.',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
   );
 }
 
@@ -43,7 +61,11 @@ const handler = async (
       dbError,
     );
     return NextResponse.json(
+<<<<<<< HEAD
       { error: "Database error while fetching server configuration." },
+=======
+      { error: 'Database error while fetching server configuration.' },
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       { status: 500 },
     );
   }
@@ -57,12 +79,20 @@ const handler = async (
   }
 
   logger.log(
+<<<<<<< HEAD
     `[${serverName}/${t}] Found config: cmd="${serverConfig.command}", args="${serverConfig.Args.join(" ")}"`,
+=======
+    `[${serverName}/${t}] Found config: cmd="${serverConfig.command}", args="${serverConfig.Args.join(' ')}"`,
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
   );
 
   const mcpExternalClient = new Client({
     name: `${CLIENT_APP_NAME_PREFIX}-${serverName}-${t}`,
+<<<<<<< HEAD
     version: "1.0.0",
+=======
+    version: '1.0.0',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
   });
 
   const externalServiceTransport = new StdioClientTransport({
@@ -78,7 +108,11 @@ const handler = async (
     fetchedExternalTools = [];
     try {
       logger.log(
+<<<<<<< HEAD
         `[${serverName}/${t}] Connecting: ${serverConfig!.command} ${serverConfig!.Args.join(" ")}`,
+=======
+        `[${serverName}/${t}] Connecting: ${serverConfig!.command} ${serverConfig!.Args.join(' ')}`,
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       );
       await mcpExternalClient.connect(externalServiceTransport);
       logger.log(
@@ -143,10 +177,17 @@ const handler = async (
 
           if (
             tool.inputSchema &&
+<<<<<<< HEAD
             typeof tool.inputSchema === "object" &&
             tool.inputSchema.type === "object" &&
             tool.inputSchema.properties &&
             typeof tool.inputSchema.properties === "object"
+=======
+            typeof tool.inputSchema === 'object' &&
+            tool.inputSchema.type === 'object' &&
+            tool.inputSchema.properties &&
+            typeof tool.inputSchema.properties === 'object'
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           ) {
             const properties = tool.inputSchema.properties;
             const requiredProperties = new Set(
@@ -160,6 +201,7 @@ const handler = async (
                 let fieldSchema: ZodTypeAny;
                 if (
                   propertyJsonSchema &&
+<<<<<<< HEAD
                   typeof propertyJsonSchema === "object"
                 ) {
                   switch (propertyJsonSchema.type) {
@@ -179,6 +221,27 @@ const handler = async (
                       fieldSchema = z.array(z.any());
                       break;
                     case "object":
+=======
+                  typeof propertyJsonSchema === 'object'
+                ) {
+                  switch (propertyJsonSchema.type) {
+                    case 'string':
+                      fieldSchema = z.string();
+                      break;
+                    case 'number':
+                      fieldSchema = z.number();
+                      break;
+                    case 'integer':
+                      fieldSchema = z.number().int();
+                      break;
+                    case 'boolean':
+                      fieldSchema = z.boolean();
+                      break;
+                    case 'array':
+                      fieldSchema = z.array(z.any());
+                      break;
+                    case 'object':
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                       fieldSchema = z.record(z.string(), z.any());
                       break;
                     default:
@@ -203,7 +266,11 @@ const handler = async (
             }
           } else if (
             tool.inputSchema &&
+<<<<<<< HEAD
             typeof tool.inputSchema === "object" &&
+=======
+            typeof tool.inputSchema === 'object' &&
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             tool.inputSchema.type
           ) {
             logger.warn(
@@ -211,6 +278,7 @@ const handler = async (
             );
             let primitiveSchema: ZodTypeAny;
             switch (tool.inputSchema.type) {
+<<<<<<< HEAD
               case "string":
                 primitiveSchema = z.string();
                 break;
@@ -224,6 +292,21 @@ const handler = async (
                 primitiveSchema = z.boolean();
                 break;
               case "array":
+=======
+              case 'string':
+                primitiveSchema = z.string();
+                break;
+              case 'number':
+                primitiveSchema = z.number();
+                break;
+              case 'integer':
+                primitiveSchema = z.number().int();
+                break;
+              case 'boolean':
+                primitiveSchema = z.boolean();
+                break;
+              case 'array':
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                 primitiveSchema = z.array(z.any());
                 break;
               default:
@@ -235,7 +318,11 @@ const handler = async (
             }
             zodShapeForAdapter = { value: primitiveSchema };
             paramsTransformer = (p: any) =>
+<<<<<<< HEAD
               p && typeof p === "object" && "value" in p ? p.value : p;
+=======
+              p && typeof p === 'object' && 'value' in p ? p.value : p;
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           } else if (tool.inputSchema) {
             logger.error(
               `[${serverName}/${t}] Tool "${
@@ -271,7 +358,11 @@ const handler = async (
                   context: {
                     serverName: serverName,
                     transport: t,
+<<<<<<< HEAD
                     source: "mcp-bridge-api-dynamic",
+=======
+                    source: 'mcp-bridge-api-dynamic',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                   },
                 });
                 return result;
@@ -282,8 +373,13 @@ const handler = async (
                 );
                 if (
                   executionError instanceof Error &&
+<<<<<<< HEAD
                   (executionError.message.includes("disconnected") ||
                     executionError.message.includes("not connected"))
+=======
+                  (executionError.message.includes('disconnected') ||
+                    executionError.message.includes('not connected'))
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                 ) {
                   logger.warn(
                     `[${serverName}/${t}] Client disconnected. Reconnecting for "${tool.name}"...`,
@@ -303,7 +399,11 @@ const handler = async (
                     context: {
                       serverName: serverName,
                       transport: t,
+<<<<<<< HEAD
                       source: "mcp-bridge-api-dynamic-retry",
+=======
+                      source: 'mcp-bridge-api-dynamic-retry',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                     },
                   });
                 }
@@ -326,7 +426,11 @@ const handler = async (
     {
       redisUrl: REDIS_URL,
       basePath: currentBasePath,
+<<<<<<< HEAD
       verboseLogs: process.env.NODE_ENV === "development",
+=======
+      verboseLogs: process.env.NODE_ENV === 'development',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       // verboseLogs: false,
       maxDuration: 120,
     },

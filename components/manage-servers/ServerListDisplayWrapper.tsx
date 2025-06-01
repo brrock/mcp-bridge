@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 "use client";
 
 import React, { useState } from "react";
 import { Server } from "@/lib/generated/prisma";
 import { ServerListDisplay } from "./ServerListDisplay";
 import { ConnectModal } from "./ConnectModal";
+=======
+'use client';
+
+import React, { useState } from 'react';
+import { Server } from '@/lib/generated/prisma';
+import { ServerListDisplay } from './ServerListDisplay';
+import { ConnectModal } from './ConnectModal';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 interface ServerListDisplayWrapperProps {
   initialServers: Server[];

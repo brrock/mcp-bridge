@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import * as React from "react";
@@ -5,6 +6,15 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+=======
+'use client';
+
+import * as React from 'react';
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 function Select({
   ...props
@@ -26,11 +36,19 @@ function SelectValue({
 
 function SelectTrigger({
   className,
+<<<<<<< HEAD
   size = "default",
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
   size?: "sm" | "default";
+=======
+  size = 'default',
+  children,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
+  size?: 'sm' | 'default';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 }) {
   return (
     <SelectPrimitive.Trigger
@@ -53,7 +71,11 @@ function SelectTrigger({
 function SelectContent({
   className,
   children,
+<<<<<<< HEAD
   position = "popper",
+=======
+  position = 'popper',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
@@ -61,9 +83,15 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
+<<<<<<< HEAD
           "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+=======
+          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md',
+          position === 'popper' &&
+            'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           className,
         )}
         position={position}
@@ -72,9 +100,15 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
+<<<<<<< HEAD
             "p-1",
             position === "popper" &&
               "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1",
+=======
+            'p-1',
+            position === 'popper' &&
+              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           )}
         >
           {children}
@@ -92,7 +126,11 @@ function SelectLabel({
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
+<<<<<<< HEAD
       className={cn("text-muted-foreground px-2 py-1.5 text-xs", className)}
+=======
+      className={cn('text-muted-foreground px-2 py-1.5 text-xs', className)}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       {...props}
     />
   );
@@ -129,7 +167,11 @@ function SelectSeparator({
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
+<<<<<<< HEAD
       className={cn("bg-border pointer-events-none -mx-1 my-1 h-px", className)}
+=======
+      className={cn('bg-border pointer-events-none -mx-1 my-1 h-px', className)}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       {...props}
     />
   );
@@ -143,7 +185,11 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
+<<<<<<< HEAD
         "flex cursor-default items-center justify-center py-1",
+=======
+        'flex cursor-default items-center justify-center py-1',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
         className,
       )}
       {...props}
@@ -161,7 +207,11 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
+<<<<<<< HEAD
         "flex cursor-default items-center justify-center py-1",
+=======
+        'flex cursor-default items-center justify-center py-1',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
         className,
       )}
       {...props}

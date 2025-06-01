@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { ReactNode } from "react";
 import "./globas.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+=======
+import { ReactNode } from 'react';
+import './globas.css';
+import { Toaster } from '@/components/ui/sonner';
+import { ThemeProvider } from '@/components/theme-provider';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 interface LayoutProps {
   children: ReactNode;
 }
@@ -16,6 +23,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+<<<<<<< HEAD
          <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -23,6 +31,14 @@ export default function Layout({ children }: LayoutProps) {
             disableTransitionOnChange
           >
           
+=======
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           {children}
           <Toaster richColors position="bottom-right" />
         </ThemeProvider>

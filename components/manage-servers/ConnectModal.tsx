@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 "use client";
 
 import React, { useState,  useMemo } from "react";
+=======
+'use client';
+
+import React, { useState, useMemo } from 'react';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 import {
   Dialog,
   DialogContent,
@@ -8,13 +14,18 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
+<<<<<<< HEAD
 } from "@/components/ui/dialog";
+=======
+} from '@/components/ui/dialog';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+<<<<<<< HEAD
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -22,6 +33,15 @@ import { toast } from "sonner";
 import { Copy, BotIcon, Check } from "lucide-react";
 import { baseUrl } from "@/lib/getBaseUrl";
 import Image from "next/image";
+=======
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
+import { Copy, BotIcon, Check } from 'lucide-react';
+import { baseUrl } from '@/lib/getBaseUrl';
+import Image from 'next/image';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 interface ConnectModalProps {
   isOpen: boolean;
@@ -29,16 +49,26 @@ interface ConnectModalProps {
   serverName: string;
 }
 
+<<<<<<< HEAD
 type AppType = "mcp-client" | "claude-desktop" | "cursor";
 type CommandRunner = "npx" | "bunx";
+=======
+type AppType = 'mcp-client' | 'claude-desktop' | 'cursor';
+type CommandRunner = 'npx' | 'bunx';
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 export function ConnectModal({
   isOpen,
   onOpenChangeAction,
   serverName,
 }: ConnectModalProps) {
+<<<<<<< HEAD
   const [selectedApp, setSelectedApp] = useState<AppType>("mcp-client");
   const [commandRunner, setCommandRunner] = useState<CommandRunner>("npx");
+=======
+  const [selectedApp, setSelectedApp] = useState<AppType>('mcp-client');
+  const [commandRunner, setCommandRunner] = useState<CommandRunner>('npx');
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
   const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({});
 
   const copyToClipboard = (text: string, fieldName: string) => {
@@ -52,8 +82,13 @@ export function ConnectModal({
         }, 2000);
       })
       .catch((err) => {
+<<<<<<< HEAD
         toast.error("Could not copy text to clipboard.");
         console.error("Failed to copy text: ", err);
+=======
+        toast.error('Could not copy text to clipboard.');
+        console.error('Failed to copy text: ', err);
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       });
   };
 
@@ -64,6 +99,7 @@ export function ConnectModal({
     const mcpBaseUrlForRemote = `${baseUrl}/mcp/${serverName}`;
 
     switch (selectedApp) {
+<<<<<<< HEAD
       case "mcp-client":
         return {
           title: "MCP Client Chatbot",
@@ -79,6 +115,23 @@ export function ConnectModal({
       case "claude-desktop":
         return {
           title: "Claude Desktop",
+=======
+      case 'mcp-client':
+        return {
+          title: 'MCP Client Chatbot',
+          icon: <BotIcon className="mr-2 h-5 w-5" />,
+          instructions: [
+            {
+              label: 'Configuration JSON:',
+              content: JSON.stringify({ url: mcpSseUrl }, null, 2),
+              type: 'code' as const,
+            },
+          ],
+        };
+      case 'claude-desktop':
+        return {
+          title: 'Claude Desktop',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           icon: (
             <Image
               src="https://raw.githubusercontent.com/gilbarbara/logos/refs/heads/main/logos/claude-icon.svg"
@@ -90,6 +143,7 @@ export function ConnectModal({
           ),
           instructions: [
             {
+<<<<<<< HEAD
               label: "Configuration File Paths:",
               content:
                 "macOS: ~/Library/Application Support/Claude/claude_desktop_config.json\nWindows: %APPDATA%\\Claude\\claude_desktop_config.json",
@@ -100,6 +154,18 @@ export function ConnectModal({
               content:
                 "If the file or 'mcpRemoteLanguageServers' key does not exist yet, you may need to enable MCP server integration under Settings > Developer in Claude Desktop, or create them manually.",
               type: "note" as const,
+=======
+              label: 'Configuration File Paths:',
+              content:
+                'macOS: ~/Library/Application Support/Claude/claude_desktop_config.json\nWindows: %APPDATA%\\Claude\\claude_desktop_config.json',
+              type: 'filePath' as const,
+            },
+            {
+              label: 'Note:',
+              content:
+                "If the file or 'mcpRemoteLanguageServers' key does not exist yet, you may need to enable MCP server integration under Settings > Developer in Claude Desktop, or create them manually.",
+              type: 'note' as const,
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             },
             {
               label: `Add to 'mcpRemoteLanguageServers' in claude_desktop_config.json:`,
@@ -107,12 +173,17 @@ export function ConnectModal({
                 {
                   [serverName]: {
                     command: commandRunner,
+<<<<<<< HEAD
                     args: ["mcp-remote", mcpBaseUrlForRemote],
+=======
+                    args: ['mcp-remote', mcpBaseUrlForRemote],
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                   },
                 },
                 null,
                 2,
               ),
+<<<<<<< HEAD
               type: "code" as const,
             },
           ],
@@ -120,6 +191,15 @@ export function ConnectModal({
       case "cursor":
         return {
           title: "Cursor",
+=======
+              type: 'code' as const,
+            },
+          ],
+        };
+      case 'cursor':
+        return {
+          title: 'Cursor',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
           icon: (
             <Image
               src="https://www.cursor.com/favicon.svg"
@@ -131,6 +211,7 @@ export function ConnectModal({
           ),
           instructions: [
             {
+<<<<<<< HEAD
               label: "Configuration Location:",
               content:
                 "Find MCP server configuration in Cursor settings via the UI if available.",
@@ -138,6 +219,15 @@ export function ConnectModal({
             },
             {
               label: "Add to MCP Servers configuration:",
+=======
+              label: 'Configuration Location:',
+              content:
+                'Find MCP server configuration in Cursor settings via the UI if available.',
+              type: 'note' as const,
+            },
+            {
+              label: 'Add to MCP Servers configuration:',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
               content: JSON.stringify(
                 {
                   mcpServers: {
@@ -149,7 +239,11 @@ export function ConnectModal({
                 null,
                 2,
               ),
+<<<<<<< HEAD
               type: "code" as const,
+=======
+              type: 'code' as const,
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             },
           ],
         };
@@ -167,9 +261,15 @@ export function ConnectModal({
           <DialogTitle>Connect to "{serverName}"</DialogTitle>
           <DialogDescription>
             Select an application to view connection instructions. The base URL
+<<<<<<< HEAD
             used is:{" "}
             <code className="rounded bg-muted px-1 font-mono">
               {baseUrl || "Loading..."}
+=======
+            used is:{' '}
+            <code className="rounded bg-muted px-1 font-mono">
+              {baseUrl || 'Loading...'}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             </code>
           </DialogDescription>
         </DialogHeader>
@@ -200,7 +300,11 @@ export function ConnectModal({
                       width={16}
                       height={16}
                       className="mr-2 h-4 w-4"
+<<<<<<< HEAD
                     />{" "}
+=======
+                    />{' '}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                     Claude Desktop
                   </div>
                 </SelectItem>
@@ -212,7 +316,11 @@ export function ConnectModal({
                       width={16}
                       height={16}
                       className="mr-2 h-4 w-4"
+<<<<<<< HEAD
                     />{" "}
+=======
+                    />{' '}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                     Cursor
                   </div>
                 </SelectItem>
@@ -220,7 +328,11 @@ export function ConnectModal({
             </Select>
           </div>
 
+<<<<<<< HEAD
           {selectedApp === "claude-desktop" && (
+=======
+          {selectedApp === 'claude-desktop' && (
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="command-runner" className="col-span-1 text-right">
                 Runner
@@ -252,7 +364,11 @@ export function ConnectModal({
                 return (
                   <div key={index} className="space-y-1">
                     <Label className="text-sm font-medium">{item.label}</Label>
+<<<<<<< HEAD
                     {item.type === "code" ? (
+=======
+                    {item.type === 'code' ? (
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                       <div className="group relative">
                         <pre className="overflow-x-auto rounded-md bg-muted p-3 pr-10 font-mono text-sm">
                           <code>{item.content}</code>
@@ -272,7 +388,11 @@ export function ConnectModal({
                             <Copy className="h-4 w-4" />
                           )}
                           <span className="sr-only">
+<<<<<<< HEAD
                             {isCopied ? "Copied" : "Copy"}
+=======
+                            {isCopied ? 'Copied' : 'Copy'}
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
                           </span>
                         </Button>
                       </div>

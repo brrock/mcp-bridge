@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import { useTheme } from "next-themes";
@@ -15,6 +16,25 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-bg": "var(--popover)",
           "--normal-text": "var(--popover-foreground)",
           "--normal-border": "var(--border)",
+=======
+'use client';
+
+import { useTheme } from 'next-themes';
+import { Toaster as Sonner, ToasterProps } from 'sonner';
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  const { theme = 'system' } = useTheme();
+
+  return (
+    <Sonner
+      theme={theme as ToasterProps['theme']}
+      className="toaster group"
+      style={
+        {
+          '--normal-bg': 'var(--popover)',
+          '--normal-text': 'var(--popover-foreground)',
+          '--normal-border': 'var(--border)',
+>>>>>>> 2820091 (Feat: add husky, lint staged and biome)
         } as React.CSSProperties
       }
       {...props}
