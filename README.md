@@ -19,9 +19,8 @@ MCP Bridge is a powerful proxy solution that transforms STDIO-based MCP (Model C
 - **Infrastructure restrictions** - Anything that isn't natively supported by existing adapters
 
 ### 🔧 **Transport Compatibility**
-- Bridges the gap between STDIO and web-based protocols
-- Enables deployment on platforms that don't support process-based communication
-- Provides flexible transport options for different hosting environments
+- Enables deployment on platforms that don't support STDIO-based communication
+- Provides flexible transport options for different environments
 
 ## Why This is Needed
 
