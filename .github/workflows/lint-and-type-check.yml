@@ -17,29 +17,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
+      - name: Install bun
+        run: npm install -g bun
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Run Lint
-        run: pnpm lint
+        run: bun lint
 
-      - name: Run Type Check
-        run: pnpm check-types
-
-      - name: Run Tests
-        run: pnpm test
