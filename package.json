@@ -1,6 +1,7 @@
 {
   "name": "mcp-bridge",
   "version": "0.1.0",
+  "author": "brrock"
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
