@@ -1,4 +1,3 @@
-// components/manage-servers/ServerListDisplayWrapper.tsx
 "use client";
 
 import React, { useState } from "react";

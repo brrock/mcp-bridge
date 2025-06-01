@@ -5,7 +5,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 interface LayoutProps {
   children: ReactNode;
 }
-
+export const metadata = {
+  title: 'MCP Bridge',
+  description: 'A proxy server for STDIO MCP servers to SSE or streamble http',
+  icons: {
+    icon: '/favico.svg',
+  },
+};
 export default function Layout({ children }: LayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>

@@ -63,8 +63,43 @@ export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
     }
   }, [state, onFormSubmitSuccess]);
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!formRef.current) return;
+
+    const formData = new FormData(formRef.current);
+    const argsJsonStringValue = formData.get("argsString");
+
+    const argsJsonString =
+      typeof argsJsonStringValue === "string" ? argsJsonStringValue : "";
+
+    if (argsJsonString.trim() !== "") {
+      try {
+        const argsArray = JSON.parse(argsJsonString);
+        if (Array.isArray(argsArray)) {
+          const transformedArgs = argsArray.join(",");
+          formData.set("argsString", transformedArgs);
+        } else {
+          toast.error(
+            "Command Arguments must be a valid JSON array. e.g., [\"--port\", \"8080\"]",
+          );
+          return;
+        }
+      } catch (error) {
+        toast.error(
+          "Invalid JSON format for Command Arguments. Please check your input.",
+        );
+        return; 
+      }
+    } else {
+      formData.set("argsString", "");
+    }
+
+    formAction(formData);
+  };
+
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Label htmlFor="name">Server Name</Label>
         <Input
