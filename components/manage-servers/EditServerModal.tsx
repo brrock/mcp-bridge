@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useEffect, useState, useActionState } from "react";
+import React, {
+  useEffect,
+  useState,
+  useActionState,
+  startTransition,
+} from "react";
 import { useFormStatus } from "react-dom";
 import { Server } from "@/lib/generated/prisma";
 import {
@@ -132,7 +137,9 @@ export function EditServerModal({
     formData.append("command", command);
     formData.append("argsString", processedArgsString);
 
-    formAction(formData);
+    startTransition(() => {
+      formAction(formData);
+    });
   };
 
   return (
