@@ -9,8 +9,6 @@ import prisma from "@/lib/prisma";
 import type { Server as PrismaServerType } from "@/lib/generated/prisma"; 
 
 const CLIENT_APP_NAME_PREFIX = "mcp-bridge-dynamic";
-const CLIENT_APP_VERSION = "1.0.0";
-
 const REDIS_URL = process.env.REDIS_URL;
 
 if (!REDIS_URL) {
@@ -64,7 +62,7 @@ const handler = async (
 
   const mcpExternalClient = new Client({
     name: `${CLIENT_APP_NAME_PREFIX}-${serverName}-${t}`,
-    version: CLIENT_APP_VERSION,
+    version: "1.0.0",
   });
 
   const externalServiceTransport = new StdioClientTransport({
