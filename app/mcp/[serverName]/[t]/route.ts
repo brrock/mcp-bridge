@@ -6,7 +6,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import logger from "@/lib/logger";
 import prisma from "@/lib/prisma";
-import type { Server as PrismaServerType } from "@/lib/generated/prisma"; // Or your specific path
+import type { Server as PrismaServerType } from "@/lib/generated/prisma"; 
 
 const CLIENT_APP_NAME_PREFIX = "mcp-bridge-dynamic";
 const CLIENT_APP_VERSION = "1.0.0";
