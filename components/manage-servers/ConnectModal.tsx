@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState,  useMemo } from "react";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Copy, BotIcon, Cpu, Pointer, Check } from "lucide-react";
+import { Copy, BotIcon, Check } from "lucide-react";
 import { baseUrl } from "@/lib/getBaseUrl";
 import Image from "next/image";
 
@@ -133,7 +133,7 @@ export function ConnectModal({
             {
               label: "Configuration Location:",
               content:
-                "Find MCP server configuration in Cursor settings (often in settings.json under a key like 'cursor.mcpServers' or via the UI if available).",
+                "Find MCP server configuration in Cursor settings via the UI if available.",
               type: "note" as const,
             },
             {
