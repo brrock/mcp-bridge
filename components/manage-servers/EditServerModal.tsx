@@ -1,29 +1,17 @@
-<<<<<<< HEAD
-"use client";
+'use client';
 
 import React, {
   useEffect,
   useState,
   useActionState,
   startTransition,
-} from "react";
-import { useFormStatus } from "react-dom";
-import { Server } from "@/lib/generated/prisma";
-import {
-  editServerAction,
-  EditServerFormState,
-} from "@/lib/actions/serverActions";
-=======
-'use client';
-
-import React, { useEffect, useState, startTransition } from 'react';
+} from 'react';
 import { useFormStatus } from 'react-dom';
 import { Server } from '@/lib/generated/prisma';
 import {
   editServerAction,
   EditServerFormState,
 } from '@/lib/actions/serverActions';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 import {
   Dialog,
   DialogContent,
@@ -32,21 +20,12 @@ import {
   DialogDescription,
   DialogFooter,
   DialogClose,
-<<<<<<< HEAD
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-=======
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 interface EditServerModalProps {
   server: Server | null;
@@ -64,11 +43,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending}>
-<<<<<<< HEAD
-      {pending ? "Saving..." : "Save Changes"}
-=======
       {pending ? 'Saving...' : 'Save Changes'}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
     </Button>
   );
 }
@@ -82,15 +57,9 @@ export function EditServerModal({
     editServerAction,
     initialState,
   );
-<<<<<<< HEAD
-  const [name, setName] = useState("");
-  const [command, setCommand] = useState("");
-  const [argsString, setArgsString] = useState("[]");
-=======
   const [name, setName] = useState('');
   const [command, setCommand] = useState('');
   const [argsString, setArgsString] = useState('[]');
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
   useEffect(() => {
     if (server) {
@@ -100,25 +69,11 @@ export function EditServerModal({
         try {
           setArgsString(JSON.stringify(server.Args));
         } catch (e) {
-<<<<<<< HEAD
-          setArgsString("[]");
-          toast.error(
-            "Failed to parse existing arguments. Please review them.",
-          );
-        }
-      } else {
-        setArgsString("[]");
-      }
-    } else {
-      setName("");
-      setCommand("");
-      setArgsString("[]");
-=======
           setArgsString('[]');
           toast.error(
             'Failed to parse existing arguments. Please review them.',
           );
-          return e as Error;
+          return e;
         }
       } else {
         setArgsString('[]');
@@ -127,7 +82,6 @@ export function EditServerModal({
       setName('');
       setCommand('');
       setArgsString('[]');
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
     }
   }, [server]);
 
@@ -156,23 +110,12 @@ export function EditServerModal({
     event.preventDefault();
     if (!server) return;
 
-<<<<<<< HEAD
-    let processedArgsString = "";
-    if (argsString.trim() !== "" && argsString.trim() !== "[]") {
-      try {
-        const parsedArgs = JSON.parse(argsString);
-        if (Array.isArray(parsedArgs)) {
-          processedArgsString = parsedArgs
-            .map((arg) => String(arg))
-            .join(",");
-=======
     let processedArgsString = '';
     if (argsString.trim() !== '' && argsString.trim() !== '[]') {
       try {
         const parsedArgs = JSON.parse(argsString);
         if (Array.isArray(parsedArgs)) {
           processedArgsString = parsedArgs.map((arg) => String(arg)).join(',');
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
         } else {
           toast.error(
             'Arguments must be a valid JSON array. e.g., ["--port", "8080"]',
@@ -181,30 +124,17 @@ export function EditServerModal({
         }
       } catch (e) {
         toast.error(
-<<<<<<< HEAD
-          "Invalid JSON format for Arguments. Please check your input.",
-        );
-        return;
-=======
           'Invalid JSON format for Arguments. Please check your input.',
         );
         return e;
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
       }
     }
 
     const formData = new FormData();
-<<<<<<< HEAD
-    formData.append("id", server.id);
-    formData.append("name", name);
-    formData.append("command", command);
-    formData.append("argsString", processedArgsString);
-=======
     formData.append('id', server.id);
     formData.append('name', name);
     formData.append('command', command);
     formData.append('argsString', processedArgsString);
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
     startTransition(() => {
       formAction(formData);
@@ -234,11 +164,7 @@ export function EditServerModal({
             />
             {formState.errors?.name && (
               <p className="mt-1 text-sm text-red-500">
-<<<<<<< HEAD
-                {formState.errors.name.join(", ")}
-=======
                 {formState.errors.name.join(', ')}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
               </p>
             )}
           </div>
@@ -255,11 +181,7 @@ export function EditServerModal({
             />
             {formState.errors?.command && (
               <p className="mt-1 text-sm text-red-500">
-<<<<<<< HEAD
-                {formState.errors.command.join(", ")}
-=======
                 {formState.errors.command.join(', ')}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
               </p>
             )}
           </div>
@@ -282,31 +204,19 @@ export function EditServerModal({
               id={`edit-argsString-desc-${server.id}`}
               className="mt-1 text-xs text-muted-foreground"
             >
-<<<<<<< HEAD
-              Enter arguments as a valid JSON array of strings. For example:{" "}
-=======
               Enter arguments as a valid JSON array of strings. For example:{' '}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
               <code>{`["arg1", "arg2 with spaces", "--flag"]`}</code>
             </p>
             {formState.errors?.argsString && (
               <p className="mt-1 text-sm text-red-500">
-<<<<<<< HEAD
-                {formState.errors.argsString.join(", ")}
-=======
                 {formState.errors.argsString.join(', ')}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
               </p>
             )}
           </div>
 
           {formState.errors?._form && (
             <p className="text-center text-sm text-red-500">
-<<<<<<< HEAD
-              {formState.errors._form.join(", ")}
-=======
               {formState.errors._form.join(', ')}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
             </p>
           )}
           {formState.message &&
@@ -329,8 +239,4 @@ export function EditServerModal({
       </DialogContent>
     </Dialog>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)

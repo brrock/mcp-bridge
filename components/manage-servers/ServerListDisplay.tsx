@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-"use client";
-import React, { useState } from "react";
-import { Server } from "@/lib/generated/prisma";
-import { Button } from "@/components/ui/button";
-=======
 'use client';
 import React, { useState } from 'react';
 import { Server } from '@/lib/generated/prisma';
 import { Button } from '@/components/ui/button';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 import {
   Card,
   CardContent,
@@ -16,17 +9,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-<<<<<<< HEAD
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { AlertTriangle, Settings2, PlugZap } from "lucide-react";
-import { EditServerModal } from "./EditServerModal";
-=======
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AlertTriangle, Settings2, PlugZap } from 'lucide-react';
 import { EditServerModal } from './EditServerModal';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 interface ServerListDisplayProps {
   servers: Server[];
   onConnectAction: (server: Server) => void;
@@ -132,8 +118,4 @@ export function ServerListDisplay({
       )}
     </>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)

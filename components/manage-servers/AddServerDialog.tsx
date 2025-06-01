@@ -1,25 +1,14 @@
-<<<<<<< HEAD
-"use client";
-
-import React from "react";
-=======
 'use client';
 
 import React from 'react';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-<<<<<<< HEAD
-} from "@/components/ui/dialog";
-import { AddServerForm } from "./AddServerForm";
-=======
 } from '@/components/ui/dialog';
 import { AddServerForm } from './AddServerForm';
->>>>>>> 2820091 (Feat: add husky, lint staged and biome)
 
 interface AddServerDialogProps {
   isOpen: boolean;
