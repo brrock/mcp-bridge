@@ -5,7 +5,6 @@ import { AddServerDialogWrapper } from "@/components/manage-servers/AddServerDia
 import { Separator } from "@/components/ui/separator";
 import { getServersAction } from "@/lib/actions/serverActions";
 import { Server } from "@/lib/generated/prisma";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function HomePage() {
   const servers: Server[] = await getServersAction();
@@ -19,7 +18,6 @@ export default async function HomePage() {
             Manage and connect to your MCP server instances.
           </p>
         </div>
-        <ThemeToggle/>
         <AddServerDialogWrapper />
       </header>
 
