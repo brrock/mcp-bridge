@@ -1,12 +1,12 @@
-# MCP Bridge - the perfect way to proxy your STDIO servers to SSE or streamable HTTP transport 
+# MCP Bridge - the perfect way to proxy your STDIO servers to SSE or streamable HTTP transport
 
 ## Table of Contents
 1. [Overview](#overview)
 2. [What This Solves](#what-this-solves)
 3. [Why This is Needed](#why-this-is-needed)
 4. [Features](#features)
-5. [Roadmap](#roadmap)
-6. [Getting Started](#getting-started)
+5. [Getting Started](#getting-started)
+6. [Roadmap](#roadmap)
 
 ## Overview
 MCP Bridge is a powerful proxy solution that transforms STDIO-based MCP (Model Context Protocol) servers into web-accessible services using Server-Sent Events (SSE) or streamable HTTP transport. Perfect for modern deployment scenarios where traditional STDIO communication isn't feasible.
@@ -36,8 +36,7 @@ Found a really cool chatbot that has MCP support and you want to self-host MCP s
 
 ### 🎛️ **Management UI**
 - Intuitive interface for easily adding and managing MCP servers
-- Visual configuration and monitoring
-- Real-time server status and health checks
+- Visual configuration
 
 ### 🔗 **Connection and Config Generator**
 - Automated configuration generation for MCP server connections
@@ -54,12 +53,23 @@ Found a really cool chatbot that has MCP support and you want to self-host MCP s
 - Maintains MCP protocol compatibility
 - Efficient message routing and handling
 
+## Getting Started
+
+To get started with MCP Bridge, follow these simple steps:
+
+```bash
+bun i
+bun docker:pg
+bun docker:redis
+bun db:push
+```
+
 ## Roadmap
 
 ### 🐳 **Docker Deployment**
 - Complete containerized solution
 - Integrated PostgreSQL database support
-- Redis 
+- Redis
 - One-command deployment setup
 
 ### 🧪 **Testing Environment**
