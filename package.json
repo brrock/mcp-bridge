@@ -1,6 +1,6 @@
 {
   "name": "mcp-bridge",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "brrock",
   "private": true,
   "scripts": {
@@ -58,7 +58,10 @@
     "typescript": "^5.8.3"
   },
   "lint-staged": {
-    "*.{js,json,md,mjs,ts,yaml,tsx,css}": ["bun format", "bun lint:fix"]
+    "*.{js,json,md,mjs,ts,yaml,tsx,css}": [
+      "bun format",
+      "bun lint:fix"
+    ]
   },
   "trustedDependencies": [
     "@biomejs/biome",
