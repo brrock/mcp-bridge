@@ -98,16 +98,18 @@ export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
       </div>
 
       <div>
-        <Label htmlFor="argsString">Command Arguments (comma-separated)</Label>
+        <Label htmlFor="argsString">
+          Command Arguments (JSON array of strings)
+        </Label>
         <Textarea
           id="argsString"
           name="argsString"
-          placeholder="e.g., app.py,"
-          aria-describedby="argsString-error"
+          placeholder='e.g., ["--port", "8080", "-v", "my value"]'
+          aria-describedby="argsString-desc argsString-error"
         />
-        <p className="mt-1 text-xs text-muted-foreground">
-          Enter arguments separated by commas. Each part becomes a distinct
-          argument.
+        <p id="argsString-desc" className="mt-1 text-xs text-muted-foreground">
+          Enter arguments as a valid JSON array of strings. For example:{" "}
+          <code>{`["arg1", "arg2 with spaces", "--flag"]`}</code>
         </p>
         {state.errors?.argsString && (
           <p id="argsString-error" className="mt-1 text-sm text-red-600">
