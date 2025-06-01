@@ -1,5 +1,5 @@
 {
-  "name": "next.js-mcp-server",
+  "name": "mcp-bridge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,8 @@
     "start": "next start",
     "docker:pg": "docker run --name mcp-bridge-pg -e POSTGRES_PASSWORD=your_password -e POSTGRES_USER=your_username -e POSTGRES_DB=your_database_name -p 5433:5432 -d postgres",
     "db:push": "prisma db push",
-    "db:generate": "prisma generate"
+    "db:generate": "prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.12.1",
