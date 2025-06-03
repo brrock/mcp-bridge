@@ -9,7 +9,7 @@
 6.  [Roadmap](#roadmap)
 
 ## Overview
-MCP Bridge is a robust proxy solution designed to transform STDIO-based MCP (Model Context Protocol) servers into web-accessible services. It leverages Server-Sent Events (SSE) or streamable HTTP transport, making it ideal for modern deployment scenarios where traditional STDIO communication is not feasible.
+MCP Bridge is a robust proxy solution designed to transform STDIO-based MCP (Model Context Protocol) servers into web-accessible services. It leverages Server-Sent Events (SSE) or streamable HTTP transport, making it ideal for modern deployment scenarios where traditional STDIO communication is not feasible - e.g vercel.
 
 ## Addressing Deployment Challenges
 

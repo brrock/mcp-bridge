@@ -30,6 +30,7 @@ export type AddServerFormState = {
 };
 
 export async function addServerAction(
+  prevState: AddServerFormState,
   formData: FormData,
 ): Promise<AddServerFormState> {
   const validatedFields = addServerFormSchema.safeParse({
@@ -40,9 +41,11 @@ export async function addServerAction(
 
   if (!validatedFields.success) {
     return {
+      ...prevState,
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Validation failed. Please check the fields.',
       success: false,
+      server: null,
     };
   }
 
@@ -62,9 +65,11 @@ export async function addServerAction(
 
     if (existingServer) {
       return {
+        ...prevState,
         message: 'A server with this name already exists.',
         success: false,
         errors: { name: ['This server name is already taken.'] },
+        server: null,
       };
     }
 
@@ -78,9 +83,11 @@ export async function addServerAction(
 
     revalidatePath('/');
     return {
+      ...prevState,
       message: `Server "${name}" added successfully!`,
       success: true,
       server: newServer,
+      errors: {},
     };
   } catch (error) {
     let errorMessage = 'An unexpected error occurred while adding the server.';
@@ -88,9 +95,11 @@ export async function addServerAction(
       errorMessage = error.message;
     }
     return {
+      ...prevState,
       message: errorMessage,
       success: false,
       errors: { _form: [errorMessage] },
+      server: null,
     };
   }
 }

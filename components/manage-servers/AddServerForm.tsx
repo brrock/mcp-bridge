@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useTransition } from 'react';
 import { useFormStatus } from 'react-dom';
 import {
   addServerAction,
@@ -35,6 +35,7 @@ function SubmitButton() {
 
 export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [, startTransition] = useTransition();
 
   const initialState: AddServerFormState = {
     message: null,
@@ -69,7 +70,6 @@ export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
 
     const formData = new FormData(formRef.current);
     const argsJsonStringValue = formData.get('argsString');
-
     const argsJsonString =
       typeof argsJsonStringValue === 'string' ? argsJsonStringValue : '';
 
@@ -77,6 +77,15 @@ export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
       try {
         const argsArray = JSON.parse(argsJsonString);
         if (Array.isArray(argsArray)) {
+          const allStrings = argsArray.every(
+            (item) => typeof item === 'string',
+          );
+          if (!allStrings) {
+            toast.error(
+              'Command Arguments JSON array must only contain strings. e.g., ["--port", "8080"]',
+            );
+            return;
+          }
           const transformedArgs = argsArray.join(',');
           formData.set('argsString', transformedArgs);
         } else {
@@ -89,17 +98,22 @@ export function AddServerForm({ onFormSubmitSuccess }: AddServerFormProps) {
         toast.error(
           'Invalid JSON format for Command Arguments. Please check your input.',
         );
+        console.error(error);
         return error;
       }
     } else {
       formData.set('argsString', '');
     }
 
-    formAction(formData);
+    // This line (111) should now be fine if addServerAction's signature is correct
+    startTransition(() => {
+      formAction(formData);
+    });
   };
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+      {/* ... rest of your form JSX ... */}
       <div>
         <Label htmlFor="name">Server Name</Label>
         <Input
