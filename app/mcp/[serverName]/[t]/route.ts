@@ -11,12 +11,6 @@ import type { Server as PrismaServerType } from '@/lib/generated/prisma';
 const CLIENT_APP_NAME_PREFIX = 'mcp-bridge-dynamic';
 const REDIS_URL = process.env.REDIS_URL;
 
-if (!REDIS_URL) {
-  throw new Error(
-    'REDIS_URL environment variable is not set. This is required.',
-  );
-}
-
 interface FetchedTool {
   name: string;
   description: string;

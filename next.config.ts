@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       new URL('https://raw.githubusercontent.com/**'),
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

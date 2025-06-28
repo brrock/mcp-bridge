@@ -75,7 +75,7 @@ To get started with MCP Bridge, follow these simple steps:
 
 ## Roadmap
 
-### 🐳 **Docker Deployment**
+### 🐳 **Docker Deployment** 
 -   **Goal:** Provide a complete containerized solution for simplified deployment.
 -   **Includes:** Integrated PostgreSQL database support and Redis for session management.
 -   **Benefit:** Enables one-command deployment setup, significantly reducing setup complexity.
